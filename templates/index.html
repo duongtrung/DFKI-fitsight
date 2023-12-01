@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Real-Time Posture Correction in Gym Exercises</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            /* Set text color to white */
+            background-color: black;
+            /* Set background color to black */
+            overflow: hidden;
+            /* Prevent scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Center the video vertically and horizontally */
+        }
+
+        #backgroundVideo {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* Maintain aspect ratio while fitting within the container */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* Place the video behind other content */
+        }
+
+        .overlay {
+            /* Create a div to overlay on top of the video */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Add a semi-transparent background */
+            z-index: 1;
+            /* Place the overlay above the video */
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .progress-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Set background color to black with 30% transparency */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            width: 20px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Set background color to black with 50% transparency */
+            position: relative;
+        }
+
+        .filled-bar {
+            width: 100%;
+            background-color: rgba(255, 165, 0, 0.7);
+            /* Orange color with 70% transparency */
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            animation: fillBar 2s ease-out 0.5s forwards;
+        }
+
+        @keyframes fillBar {
+            0% {
+                height: 0;
+            }
+
+            100% {
+                height: 93%;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: rgba(255, 165, 0, 0.7);
+            /* Orange color with 70% transparency */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .countdown-clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .clock-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .clock {
+            font-size: 246px;
+            font-weight: bold;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 0, 0, 0.3);
+            /* Red color with 30% transparency */
+            z-index: 2;
+        }
+
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.5));
+            border-radius: 50%;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 1;
+            animation: fillClock 60s linear infinite, wave 1.5s ease-in-out infinite;
+        }
+
+        @keyframes fillClock {
+
+            0%,
+            100% {
+                height: 0;
+            }
+
+            50% {
+                height: 100%;
+            }
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .clock-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .clock-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .buttonsv {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .buttonv {
+            padding: 10px 20px;
+            background-color: rgba(255, 165, 0, 0.7);
+            /* Orange color with 70% transparency */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .display {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            font-size: 48px;
+            font-weight: bold;
+            background-color: rgba(255, 165, 0, 0.7);
+            /* Orange color with 70% transparency */
+            border-radius: 100px;
+            margin-top: 20px;
+        }
+
+        .horizontal-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 165, 0, 1);
+            /* Orange color with 70% transparency */
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Black color with 70% transparency */
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .option {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .option:last-child {
+            border-bottom: none;
+        }
+
+        .arrow {
+            margin-left: auto;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-self: end;
+            width: 50%;
+        }
+
+        .toggle-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 10px 20px;
+            background-color: rgb(30, 255, 0);
+            /* Orange color with 70% transparency */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .toggle-button.active {
+            background-color: rgba(255, 165, 0, 1);
+            /* Orange color */
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            /* Set ball color to black */
+            border-radius: 50%;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.3s ease-in-out;
+        }
+
+        .toggle-button.active .ball {
+            left: calc(100% - 25px);
+        }
+
+        .button-title {
+            color: white;
+            /* Set button title color to white */
+        }
+
+        .content-box {
+            background-color: rgba(255, 165, 0, 1);
+            /* Black color with 70% transparency */
+            color: black;
+            /* White text color */
+            padding: 0px;
+            /* Add padding for spacing inside the box */
+            border-radius: 10px;
+           
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for depth */
+            max-width: 300px;
+            /* Set max width for the box */
+            margin: 0 auto;
+            /* Center the box horizontally */
+            text-align: center;
+            /* Center text horizontally */
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .popup-content {
+            background-color: #000000;
+            width: 300px;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            border: 2px solid;
+            border-color: #ddd;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Drop-up container */
+        .dropup {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Drop-up content */
+        .dropup-content {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            background-color: #000000;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Show the drop-up content when the button is hovered over */
+        .dropup:hover .dropup-content {
+            display: block;
+        }
+
+        /* Style the drop-up links */
+        .dropup-content a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropup-content a:hover {
+            background-color: rgba(255, 165, 0, 1);
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .video-container {
+        width: 720px; /* Set the width to 100% of its parent container */
+        max-height: 576px; /* Set a maximum height to limit the size */
+        overflow: hidden; /* Hide any overflowing content */
+      }
+
+        #video-player {
+                max-width: 100%; /* Ensure the video doesn't exceed the container's width */
+                max-height: 100%; /* Ensure the video doesn't exceed the container's height */
+                width: auto; /* Allow the video to maintain its aspect ratio */
+                height: auto; /* Allow the video to maintain its aspect ratio */
+            }
+
+        
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Styling for the button that triggers the dropdown */
+        .dropdown-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Styling for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Styling for the dropdown items */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Hover effect for dropdown items */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown content when hovering over the dropdown button */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body onload="myLoadFunction()">
+
+    <!-- Video Tag run in the background -->
+        <div class="video-container" id="video-container" aria-controls="autoplay">
+            <!-- <video id="video-player" autoplay controls> -->
+                <!-- Add your video source here -->
+            <!-- </video> -->
+    </div>
+
+    <div class="overlay">
+        <!-- Selection window -->
+        <!-- horizontal bar to Selection an exersice -->
+        
+<!-- add drop down menu-->
+        <div class="horizontal-bar" id="exercise-type">
+            <select class="horizontal-bar" name="exercise" id="exercise-dropdown">
+                <option class="dropdown-button" value=""><b>Select Exercise</b></option>
+                <option class="dropdown-button" value="bicep"><b>Bicep Curl</b></option>
+                <option class="dropdown-button" value="lunges"><b>Lunges</b></option>
+                <option class="dropdown-button" value="pushup"><b>Pushups</b></option>
+                <option class="dropdown-button" value="shoulder_lateral_raise"><b>Shoulder Lateral Raise</b></option>
+                <option class="dropdown-button" value="squats"><b>Squats</b></option>
+            </select>
+
+
+            <script>
+                function redirectToLogin() {
+            window.location.href = "login.html";
+        }
+            </script>
+
+            <button class="horizontal-bar" onclick="redirectToLogin()"> Log out</button>
+            </div>
+
+            
+
+
+        <!-- Start of Desk top -->
+        <div class="dashboard">
+            <!-- start of left column  -->
+            <div class="left-column">
+            <!-- Refresh help settings buttons and show fps -->
+            <div>
+                <div>
+
+                    <!-- Changing FPS in the range of 27 to 31 -->
+                                
+                                    <div class="content-box" style="font-size: 50px;" id="fpsBox">30</div>
+                                    <p><b>FPS:</b> Frames per seconds serving from the model running on Yolo7.</p>
+
+                                    <script>
+                                        function updateFPS() {
+                                            const fpsBox = document.getElementById('fpsBox');
+                                            let fps = 27; // Initial FPS value
+
+                                            setInterval(function () {
+                                                fps++; // Increase the FPS value by 1
+
+                                                if (fps > 31) {
+                                                    fps = 27; // Reset to 27 when it reaches 31
+                                                }
+                                                fpsBox.textContent = fps ; // Update the displayed FPS value
+                                            }, 1000); // Update every 2 seconds (2000 milliseconds)
+                                        }
+
+                                        // Call the function to start updating FPS
+                                        updateFPS();
+                                    </script>
+
+
+                    <div class="">
+                        
+                        <!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
+                            <button class="toggle-button active" id="helpButton" onclick="toggleHelp()">Help</button>
+                        <!-- </div> -->
+                        <p><b>Help Button:</b> The Help button provides guidance on using the project, explaining its features and functionalities.</p>
+                        
+                    </div>
+                    <div class="">
+                        <!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
+                    <button class="toggle-button active" id="helpButton" onclick="refreshPage()">
+                        Restart                        
+                    </button>
+                    <!-- </div> -->
+                    <p><b>Restart Button:</b> Refresh reloads the current webpage, restarting it to its initial state, typically triggered by this button.</p>
+                </div>
+                </div>
+
+               
+
+                <div id="helpInfo" class="popup-content" style="display:none; align-items: center;">
+                    <span class="close-btn" id="closeBtn" onclick="toggleHelp()">&times;</span>
+                    
+                    <h3>Help Information</h3>
+                    <h3>Buttons Functionality</h3>
+                    <strong>Webcam:</strong> When you click on start webcam button you can access the real time feedback
+                    for the
+                    selected exercise.<br>
+                    <strong>Recommendation Button:</strong> When you toggle this on, you can see the feedback in form of
+                    text on the
+                    screen.<br>
+                    <strong>Keypoints Button:</strong> When you toggle this on, you can see the Kepoints drawn on the
+                    body.<br>
+                    <strong>Process Video:</strong> Onclick processes the video with both recorded and webcam as
+                    input.<br>
+
+                    <h3>Exercises</h3>
+                    <strong>Lunges:</strong> Please note that this is a right leg forward lunges exercise. Please place
+                    your right
+                    leg forward.
+                
+                
+            </div>
+            </div>
+        </div>
+        <!-- Mid column -->
+        <div class="main-content">
+            <!-- Start camera and process video button -->
+            <div>
+
+                <div style="display: flex; justify-content: center; align-items: center; height: 5vh;">
+                    
+                    <input class="button" type="file" id="file-input" name="video">
+                    <p id="video-name"></p>
+                </div>
+            <!-- </div>
+            <div> -->
+                <div id="button-container">
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                    <button style="margin-top: 40vh;" class="button" class="button" id="process-button" onclick="processVideo()">Process
+                        Video</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 5vh; align-items: center; display: none;"  id="processing-message">
+                    <h2>Video processing in under progress!</h2>
+                    <p style="font-size: smaller;"> Please wait while the video is being processed.</p>
+                
+                </div>
+
+                <div id="processed-video-container">
+                    <video id="processed-video-player" controls>
+                        <!-- <source src="" type="video/mp4"> -->
+                    </video>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <!-- No of reps toggle buttons and more to go -->
+            <div>
+                <div>
+                    <button id="toggleButton" class="toggle-button active" onclick="toggleButton()">Keypoints
+                        On</button>
+                    <p><b>Keypoints Button:</b> When you toggle this on, you can see the Kepoints drawn on the body.</p>
+                </div>
+                <div>
+                    <button id="RecommendButton" class="toggle-button active"
+                        onclick="toggleRecommendButton()">Recommendation On</button>
+                    <p><b>Recommendation Button:</b> When you toggle this on, you can see the feedback in form of text
+                        on the screen.</p>
+                </div>
+                <div>
+                    <button id="webcamToggle" class="toggle-button active" onclick="toggleWebcam()">Start
+                        Webcam</button>
+                    <p><b>Webcam:</b> When you click on start webcam button you can access the real time feedback for
+                        the selected exercise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    function refreshPage() {
+        location.reload();
+    }
+
+
+
+    const fileInput = document.getElementById('file-input');
+    const videoName = document.getElementById('video-name');
+    const processButton = document.getElementById('process-button');
+    const processingMessage = document.getElementById('processing-message');
+    const processedVideoContainer = document.getElementById('processed-video-container');
+    const processedVideoPlayer = document.getElementById('processed-video-player');
+    const videoContainer = document.getElementById('video-container')
+
+    processedVideoContainer.style.display = 'none';
+    // processedVideoPlayer.width = 720;
+    // processedVideoPlayer.height = 405;
+
+    const videoElement1 = document.createElement('video');
+    // videoElement1.width = 720;
+    // // videoElement1.height = 620;
+    videoElement1.autoplay = false; // Starts the video playback as soon as it can do so
+    videoElement1.controls = true; // Shows the default video controls (play, pause, volume, etc.)
+    videoElement1.id = 'video-player';
+    // const videoElement1 = '<video id="video-player" class="video-player" controls></video>';
+
+    
+
+    const exerciseDropdown = document.getElementById('exercise-dropdown');
+    let selectedExercise; // Variable to store the selected exercise type
+
+    let initialVideoSource; // Variable to store the initial video source URL
+    let processedVideoSource; // Variable to store the processed video source URL
+    let webcamStream = null;
+    let drawSkeleton = "yes";
+    let recommendButton = "yes";
+
+    fileInput.addEventListener('change', function () {
+        const file = fileInput.files[0];
+        let videoPlayer = document.getElementById('video-player');
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                initialVideoSource = e.target.result; // Store the initial video source URL
+                videoPlayer.src = initialVideoSource;
+            };
+            reader.readAsDataURL(file);
+            videoName.textContent = `${file.name}`;
+            processedVideoContainer.style.display = 'none';  // Hide the processed video player
+        }
+    });
+
+
+    // Add this code within your <script> tag
+    function toggleHelp() {
+        var helpInfo = document.getElementById('helpInfo');
+        if (helpInfo.style.display === 'none') {
+            helpInfo.style.display = 'block';
+        } else {
+            helpInfo.style.display = 'none';
+        }
+    }
+
+
+    exerciseDropdown.addEventListener('change', function () {
+        selectedExercise = exerciseDropdown.value;
+        console.log('Selected exercise:', selectedExercise);
+    });
+
+    function myLoadFunction() {
+        console.log('Page has finished loading!');
+        let container = document.getElementById("video-container");
+        container.appendChild(videoElement1);
+    }
+
+
+    function toggleButton() {
+        var button = document.getElementById("toggleButton");
+
+        if (button.classList.contains("active")) {
+            button.classList.remove("active");
+            button.classList.add("off");
+            button.innerHTML = "Keypoints Off";
+            drawSkeleton = "no";
+        } else {
+            button.classList.remove("off");
+            button.classList.add("active");
+            button.innerHTML = "Keypoints On";
+            drawSkeleton = "yes";
+        }
+    }
+
+    function toggleRecommendButton() {
+        var button = document.getElementById("RecommendButton");
+
+        if (button.classList.contains("active")) {
+            button.classList.remove("active");
+            button.classList.add("off");
+            button.innerHTML = "Recommendation Off";
+            recommendButton = "no";
+        } else {
+            button.classList.remove("off");
+            button.classList.add("active");
+            button.innerHTML = "Recommendation On";
+            recommendButton = "yes";
+        }
+    }
+
+
+
+    function processVideo() {
+        const file = fileInput.files[0];
+        //alert("Wecam not selected");
+        var button_stylechange = document.getElementById("process-button");
+        button_stylechange.style.backgroundColor = "green";
+
+        if (file) {
+            const formData = new FormData();
+            formData.append('video', file);
+
+            if (selectedExercise) {
+                formData.append('exercise', selectedExercise);
+            }
+            if (selectedExercise) {
+                formData.append('webcamstream', false);
+            }
+
+            formData.append("drawSkeleton", drawSkeleton);
+
+            formData.append("recommend", recommendButton);
+
+            processButton.disabled = true;
+            processingMessage.style.display = 'block';
+
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();  // Return the JSON response
+                    } else {
+                        throw new Error('Processing failed');
+                    }
+                })
+                .then(data => {
+                    processedVideoSource = data.video_url; // Store the processed video source URL
+                    processedVideoPlayer.src = ''; // Clear the video source
+                    processedVideoPlayer.load(); // Reload the video source
+                    processedVideoContainer.style.display = 'block';  // Show the processed video container
+                    processingMessage.style.display = 'none';  // Hide the processing message
+                    refreshVideoPlayers();
+                })
+                .catch(error => {
+                    console.error(error);
+                    processButton.disabled = false;
+                    processingMessage.style.display = 'none';
+                });
+        }
+        else {
+
+
+            const formData = new FormData();
+            formData.append('video', file);
+
+            /* ADDED CODE */
+            // Add the selected exercise type to the form data
+            if (selectedExercise) {
+                formData.append('exercise', selectedExercise);
+            }
+            if (selectedExercise) {
+                formData.append('webcamstream', true);
+            }
+
+            formData.append("drawSkeleton", drawSkeleton);
+            formData.append("recommend", recommendButton);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();  // Return the JSON response
+                    } else {
+                        throw new Error('Processing failed');
+                    }
+                })
+                .then(data => {
+                    processedVideoSource = data.video_url; // Store the processed video source URL
+                    refreshVideoPlayers();
+                })
+                .catch(error => {
+                    console.error(error);
+                    processButton.disabled = false;
+                    processingMessage.style.display = 'none';
+                });
+
+            console.log("processvideo() done!");
+        }
+    }
+
+
+    function refreshVideoPlayers() {
+        let videoPlayer = document.getElementById('video-player');
+        console.log(webcamStream);
+
+        if (webcamStream) {
+
+            videoPlayer.src = processedVideoSource; // Restore the initial video source
+            videoPlayer.load(); // Reload the video source
+            videoPlayer.play();
+            console.log("starting again");
+            processVideo();
+
+        }
+        else {
+            processedVideoPlayer.src = processedVideoSource;
+            videoPlayer.src = initialVideoSource; // Restore the initial video source
+            videoPlayer.load(); // Reload the video source
+            videoPlayer.play();
+            processedVideoPlayer.play();
+        }
+    }
+    function toggleWebcam() {
+
+        const videoElement2 = document.createElement('video');
+        // videoElement2.width = 720;
+        // videoElement2.height = 405;
+
+        videoElement2.autoplay = true; // Starts the video playback as soon as it can do so
+        videoElement2.controls = false; // Shows the default video controls (play, pause, volume, etc.)
+        videoElement2.id = 'webcam';
+        // const videoElement2 = '<video id="webcam" width="640" height="480" autoplay></video>'; 
+        let toggleButton = document.getElementById('webcamToggle');
+
+        if (webcamStream) {
+            webcamStream = false;
+            toggleButton.innerHTML = 'Start Webcam';
+            toggleButton.classList.remove("off");
+            toggleButton.classList.add("active");
+            
+        } else {
+            webcamStream = true;
+            toggleButton.innerHTML = 'Stop Webcam';
+            processedVideoContainer.style.display = "none";
+            toggleButton.classList.remove("active");
+            toggleButton.classList.add("off");
+        }
+    }
+    
+
+
+    const bar = document.getElementById('bar');
+    const menu = document.getElementById('menu');
+
+    bar.addEventListener('click', () => {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    function selectOption(option) {
+        const title = document.querySelector('.title');
+        title.textContent = option;
+        menu.style.display = 'none';
+    }
+
+</script>
+</body>
+
+</html>
