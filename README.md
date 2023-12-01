@@ -11,11 +11,11 @@ Create Virtual environment and activate the Virtual environment.
 1. Create a virtual environment (Install this preferrably on Anaconda Prompt. 
 This will create a empty virtual environment.
 
-		conda create -n yolov7_custom
+		conda create -n fitsight
 
 3. To activate the virtual environment:
 
-		conda activate yolov7_custom
+		conda activate fitsight
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Scripts :
@@ -23,19 +23,6 @@ Scripts :
 app.py - Python flask application that needs to run on a web server to handle the website communication with the YOLO model.
 
 index.html - Html file to manage the website webpage and handle UI. (This can be found inside the "Templates" folder)
-
-The other scripts for each exercises is named with their following exercise names.
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-ffmpeg :
-
-This is used to convert the processed video to mp4 format.
-This is already installed from the requirements.txt.
-
- To check if it is installed succesfully: 
- 
- 		ffmpeg -version
-
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -53,10 +40,6 @@ We are using publicly available yolov7 model from github repo: https://github.co
    
    		python app.py
 
-
-Note: If you wish to run this on GPU, then:
-
-You need to install CUDA that is compatible with the GPU available on your machine. Refer official CUDA installation and add them to the enviromnment variables for GPU acceleration.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 For Input videos of exercises, Please download from the below google drive link.
