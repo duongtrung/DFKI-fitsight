@@ -18,7 +18,7 @@
 
 
 ### Demo 🏋️‍♂️
-<img src="https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541" width="300">
+https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541" width
 
 
 Create Virtual environment and activate the Virtual environment.
