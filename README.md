@@ -11,7 +11,8 @@
 - **Password:** `admin`
 
 #### Login Page Preview
-<img src="URL_of_your_login_image" width="250">
+<img src="[(https://github.com/hiteshkotte/DFKI-fitsight/assets/.../main_page_image
+)](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4)" width="250">
 
 ### Main Page 🖥️
 ![GUI](https://github.com/hiteshkotte/DFKI-fitsight/assets/.../main_page_image)
