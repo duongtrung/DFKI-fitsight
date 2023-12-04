@@ -17,18 +17,15 @@ Crucially, our application, FITSIGHT, takes this innovation a step further. It e
 
 This project has been featured in the following publications:
 
-1. **[Title of Publication 1]**  
-   - Authors: Author1, Author2, Author3  
-   - Journal/Conference: Name of the Journal or Conference  
-   - Year: Year of Publication  
-   - Abstract/Summary: Brief summary or abstract of the publication.  
-   - [Link to Publication](URL_to_Publication)
+1. **Augmented Intelligence in Tutoring Systems: A Case Study in Real-Time Pose Tracking to Enhance the Self-learning of Fitness Exercises**  
+   - Authors: Nghia Duong-Trung, Hitesh Kotte and Miloš Kravčík
+   - Conference: 18th European Conference on Technology Enhanced Learning, EC-TEL 2023 Aveiro, Portugal, September 4–8, 2023 Proceedings
+   - [Link to Publication](https://link.springer.com/chapter/10.1007/978-3-031-42682-7_65)
 
-2. **[Title of Publication 2]**  
+2. **Real-Time Posture Correction in Gym Exercises: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback**  
    - Authors: Hitesh Kotte, Miloš Kravčík and Nghia Duong-Trung
    - Conference: MILeS’23: 18th European Conference on Technology Enhanced Learning (ECTEL2023),
-     3rd International Workshop on Multimodal Immersive Learning Systems, September 04–08, 2023, Aveiro, Portugal.  
-   - Year: 2023  
+     3rd International Workshop on Multimodal Immersive Learning Systems, September 04–08, 2023, Aveiro, Portugal.   
    - [Link to Publication](https://ceur-ws.org/Vol-3499/paper9.pdf)
   
      
