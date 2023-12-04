@@ -80,75 +80,26 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
      - Replace `your-username` with your actual Windows username.
 
 
-
-
-
-### Installing Dependencies
-
-#### FFmpeg Installation:
-FFmpeg is required for handling multimedia files.
-
-- **Using Anaconda Powershell:**
-  - Run the following command to install FFmpeg:
-    ```bash
-    conda install -c conda-forge ffmpeg
-    ```
-
-- **For Non-Anaconda Environments:**
-  - Download and extract the [FFmpeg](https://ffmpeg.org/download.html) build to a known directory.
-  - Add FFmpeg to your system's PATH:
-    - For all users:
-      ```bash
-      setx /M PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
-      ```
-    - For the current user:
-      ```bash
-      setx PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
-      ```
-  - Replace `your-username` with your actual Windows username.
-
-
-### Notes:
-- Adjust the file paths according to where you've installed or extracted FFmpeg.
-- Replace `your-username` with your actual Windows username in the file paths.
-
-
-## Additional Project Information
-
-(Here you can add other sections relevant to your project like 'Usage', 'Contributing', 'License', etc.)
+5. **Run the Application:**
+   - Start the application by running the following command in your terminal or command prompt:
+     ```bash
+     python app.py
+     ```
+   - Once the application is running, open your web browser.
+   - Navigate to the local host address provided in the application's output. Typically, this will be `http://localhost:PORT`
 
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------
-Scripts :
+## Additional Information
 
-app.py - Python flask application that needs to run on a web server to handle the website communication with the YOLO model.
+### Input Videos for Exercises
 
-index.html - Html file to manage the website webpage and handle UI. (This can be found inside the "Templates" folder)
+To access the input videos used for exercise analysis, please visit the following Google Drive link:
 
+[Exercise Videos](https://drive.google.com/drive/folders/10dz-wZCnio7Sub48rYiIDp3Gb_mW_Fq-?usp=sharing)
 
-----------------------------------------------------------------------------------------------------------------------------------------------
-How to run:
-
-We are using publicly available yolov7 model from github repo: https://github.com/WongKinYiu/yolov7.git
-
-1. Install the necessary dependencies
-   
-		pip install -r requirements.txt
-	
-3. Click on [`yolov7-w6-pose.pt`](https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-w6-pose.pt) to get the pre trained model weights pytorch file and place it the yolov7 directory.
-
-4. Run the python app.py to run the website on local server.
-   
-   		python app.py
-
-
------------------------------------------------------------------------------------------------------------------------------------------------
-For Input videos of exercises, Please download from the below google drive link.
-
-	https://drive.google.com/drive/folders/10dz-wZCnio7Sub48rYiIDp3Gb_mW_Fq-?usp=sharing
-
+These videos are essential for testing and demonstrating the functionalities of the application. Ensure you have appropriate permissions to access this content.
 
 
 
