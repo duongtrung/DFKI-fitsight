@@ -9,7 +9,7 @@ Username: admin
 
 Password: admin
 
-<img src="![Login](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4)" width="150">
+<img src="![Login](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4)" width="250">
 
 
 The Main Page:
