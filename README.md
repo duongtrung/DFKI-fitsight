@@ -21,26 +21,59 @@
 https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541
 
 
-Create Virtual environment and activate the Virtual environment.
+## Setting Up the Virtual Environment
 
-1. Create a virtual environment (Install this preferrably on Anaconda Prompt. 
-This will create a empty virtual environment.
+### Prerequisites
+- Ensure you have [Anaconda](https://www.anaconda.com/products/individual) installed to manage your environments and packages.
 
-		conda create -n fitsight
+### Creating and Activating the Virtual Environment
 
-3. To activate the virtual environment:
+1. **Create a Virtual Environment:**
+   - Open Anaconda Prompt.
+   - Run the following command to create a new virtual environment named `fitsight`:
+     ```bash
+     conda create -n fitsight
+     ```
 
-		conda activate fitsight
+2. **Activate the Virtual Environment:**
+   - Activate the `fitsight` environment by executing:
+     ```bash
+     conda activate fitsight
+     ```
 
-4. If you are using Anaconda Powershell, To install ffmpeg
-		conda install -c conda-forge ffmpeg
+### Installing Dependencies
 
-Otherwise zou can add the ffmpeg/bin folder to your system variables
-		setx /M PATH "%PATH%;C:\Users\hiko01-admin\Desktop\fitsight\ffmpeg-master-latest-win64-gpl\bin"
-		for all users
+#### FFmpeg Installation:
+FFmpeg is required for handling multimedia files.
 
-		setx PATH "%PATH%;C:\Users\hiko01-admin\Desktop\fitsight\ffmpeg-master-latest-win64-gpl\bin"
-		for specific users
+- **Using Anaconda Powershell:**
+  - Run the following command to install FFmpeg:
+    ```bash
+    conda install -c conda-forge ffmpeg
+    ```
+
+- **For Non-Anaconda Environments:**
+  - Download and extract the FFmpeg build to a known directory (e.g., `C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin`).
+  - Add FFmpeg to your system's PATH:
+    - For all users:
+      ```bash
+      setx /M PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+      ```
+    - For the current user:
+      ```bash
+      setx PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+      ```
+  - Replace `your-username` with your actual Windows username.
+
+### Notes:
+- Adjust the file paths according to where you've installed or extracted FFmpeg.
+- Replace `your-username` with your actual Windows username in the file paths.
+- Ensure to test these instructions in your environment to confirm they work as expected.
+
+## Additional Project Information
+
+(Here you can add other sections relevant to your project like 'Usage', 'Contributing', 'License', etc.)
+
 
 
 
