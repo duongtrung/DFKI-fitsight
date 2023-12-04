@@ -25,9 +25,9 @@
 
 # 🚀 How to Run
 
-## 🛠️ Setting Up the Virtual Environment
+## Setting Up the Virtual Environment 🛠️
 
-### Prerequisites
+### Prerequisites 📋
 - Ensure you have [Anaconda](https://www.anaconda.com/products/individual) installed to manage your environments and packages.
   
 - Clone the project repository from GitHub. Run the following command in your terminal:
@@ -36,7 +36,7 @@
 
 After cloning, extract the project files to your desired location. Ensure that you have sufficient permissions in the directory where you wish to extract the files.
 
-### Creating and Activating the Virtual Environment
+### Creating and Activating the Virtual Environment 🌐
 
 1. **Create a Virtual Environment:**
    - Open Anaconda Prompt.
