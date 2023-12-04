@@ -29,6 +29,8 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
   ```bash
   git clone https://github.com/hiteshkotte/DFKI-fitsight.git
 
+After cloning, extract the project files to your desired location. Ensure that you have sufficient permissions in the directory where you wish to extract the files.
+
 ### Creating and Activating the Virtual Environment
 
 1. **Create a Virtual Environment:**
