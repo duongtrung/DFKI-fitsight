@@ -46,6 +46,11 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
 
 3. **Install Required Packages:**
    - Ensure that the `fitsight` environment is activated.
+   - Change your current directory to the `DFKI-fitsight` folder, which is your working directory. Run the following command:
+     ```bash
+     cd path/to/your/downloads/DFKI-fitsight
+     ```
+   Replace `path/to/your/downloads/DFKI-fitsight` with the actual path where the `DFKI-fitsight` folder is located on your machine.
    - Install the required packages by running:
      ```bash
      pip install -r requirements.txt
