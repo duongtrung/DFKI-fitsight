@@ -1,5 +1,5 @@
-FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym exercises.
-Hitesh Kotte, Milos Kravcik and Nghia Duong-Trung
+<p style="color: blue;">FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym exercises.</p>
+<p style="color: green;">Hitesh Kotte, Milos Kravcik and Nghia Duong-Trung</p>
 
 Login Page:
 
