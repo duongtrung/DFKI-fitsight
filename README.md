@@ -43,6 +43,36 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
      conda activate fitsight
      ```
 
+3. **Install Required Packages:**
+   - Ensure that the `fitsight` environment is activated.
+   - Install the required packages by running:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+
+4. **FFmpeg Installation:**
+   FFmpeg is required for handling multimedia files.
+
+   - **Using Anaconda Powershell:**
+     - Run the following command to install FFmpeg:
+       ```bash
+       conda install -c conda-forge ffmpeg
+       ```
+
+   - **For Non-Anaconda Environments:**
+     - Download and extract the FFmpeg build to a known directory (e.g., `C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin`).
+     - Add FFmpeg to your system's PATH:
+       - For all users:
+         ```bash
+         setx /M PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+         ```
+       - For the current user:
+         ```bash
+         setx PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+         ```
+     - Replace `your-username` with your actual Windows username.
+
 ### Installing Dependencies
 
 #### FFmpeg Installation:
