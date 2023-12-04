@@ -8,17 +8,17 @@
 
 
 ### Login Page Preview 🚪
-<p align="center">
-  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4" width="400">
+<p align="left">
+  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4" width="350">
 </p>
 
 ### Main Page 🖥️
-<p align="center">
-  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/5f795e99-be9e-48a1-9fdc-2b950b76a724" width="400">
+<p align="left">
+  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/5f795e99-be9e-48a1-9fdc-2b950b76a724" width="350">
 </p>
 
 ### Demo 🏋️‍♂️
-<p align="center">
+<p align="left">
   <a href="https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541">Demo Video</a>
 </p>
 
