@@ -110,7 +110,7 @@ FFmpeg is required for handling multimedia files.
 ### Notes:
 - Adjust the file paths according to where you've installed or extracted FFmpeg.
 - Replace `your-username` with your actual Windows username in the file paths.
-- Ensure to test these instructions in your environment to confirm they work as expected.
+
 
 ## Additional Project Information
 
