@@ -14,7 +14,7 @@
             /* Set text color to white */
             background-color: black;
             /* Set background color to black */
-            overflow: hidden;
+            overflow-y: auto;;
             /* Prevent scrollbars */
             display: flex;
             justify-content: center;
@@ -564,10 +564,16 @@
                     <strong>Process Video:</strong> Onclick processes the video with both recorded and webcam as
                     input.<br>
 
-                    <h3>Exercises</h3>
-                    <strong>Lunges:</strong> Please note that this is a right leg forward lunges exercise. Please place
-                    your right leg forward
-                    leg forward.
+                    <h3>Video Upload Guide</h3>
+                    <p>
+                        🌟 To ensure smooth processing of your workout videos, please name your files as follows:<br>
+                        <strong>Bicep Curl</strong> ➜ <code>bicep.mp4</code><br>
+                        <strong>Lunges</strong> ➜ <code>lunges.mp4</code><br>
+                        <strong>Push-Ups</strong> ➜ <code>pushup.mp4</code><br>
+                        <strong>Shoulder Lateral Raise</strong> ➜ <code>shoulder_lateral_raise.mp4</code><br>
+                        <strong>Squats</strong> ➜ <code>squats.mp4</code><br>
+                        🔍 Following these naming conventions helps our system recognize and process your videos efficiently. Happy training!
+                    </p>
                 
                 
             </div>
@@ -593,13 +599,13 @@
                 </div>
 
                 <div style="margin-top: 5vh; align-items: center; display: none;"  id="processing-message">
-                    <h2>Video processing in under progress!</h2>
-                    <p style="font-size: smaller;"> Please wait while the video is being processed.</p>
+                    <h2>🏋️‍♂️ Your Video is Getting in Shape! 🏋️‍♀️</h2>
+                    <p style="font-size: smaller;"> Hang in there! Your video is in its final workout round. Hydrate & visualize your fitness goals! </p>
                 
                 </div>
 
                 <div id="processed-video-container">
-                    <video id="processed-video-player" controls>
+                    <video id="processed-video-player" controls style="width: 600px; height: 480px;">
                         <!-- <source src="" type="video/mp4"> -->
                     </video>
                 </div>

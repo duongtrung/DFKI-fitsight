@@ -17,6 +17,18 @@ This will create a empty virtual environment.
 
 		conda activate fitsight
 
+4. If you are using Anaconda Powershell, To install ffmpeg
+		conda install -c conda-forge ffmpeg
+
+Otherwise zou can add the ffmpeg/bin folder to your system variables
+		setx /M PATH "%PATH%;C:\Users\hiko01-admin\Desktop\fitsight\ffmpeg-master-latest-win64-gpl\bin"
+		for all users
+
+		setx PATH "%PATH%;C:\Users\hiko01-admin\Desktop\fitsight\ffmpeg-master-latest-win64-gpl\bin"
+		for specific users
+
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Scripts :
 

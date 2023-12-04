@@ -294,7 +294,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                 frame_count += 1
                 out.write(img)
 
-                if path.isnumeric() and frame_count == 500:
+                if path.isnumeric() and frame_count == 100000:
                     break
                 
             else:
@@ -312,5 +312,6 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
         print(f"Average FPS: {avg_fps:.3f}")
 
         command = "ffmpeg -y -i {}.mp4 {}.mp4".format(out_video_name, out_video_name + "_conv")
+        
 
         subprocess.run(command, shell=True)
