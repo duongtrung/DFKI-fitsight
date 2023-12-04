@@ -91,7 +91,7 @@ FFmpeg is required for handling multimedia files.
     ```
 
 - **For Non-Anaconda Environments:**
-  - Download and extract the FFmpeg build to a known directory (e.g., `C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin`).
+  - Download and extract the [FFmpeg](https://ffmpeg.org/download.html) build to a known directory.
   - Add FFmpeg to your system's PATH:
     - For all users:
       ```bash
@@ -102,6 +102,7 @@ FFmpeg is required for handling multimedia files.
       setx PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
       ```
   - Replace `your-username` with your actual Windows username.
+
 
 ### Notes:
 - Adjust the file paths according to where you've installed or extracted FFmpeg.
