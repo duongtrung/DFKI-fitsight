@@ -13,11 +13,30 @@ Our framework is built upon advanced computer vision technology, employing the h
 
 Crucially, our application, FITSIGHT, takes this innovation a step further. It enables users to employ a standard webcam as a virtual fitness trainer. This feature is particularly valuable in situations where a physical trainer is unavailable due to various constraints. FITSIGHT stands as a testament to the potential of technology in bridging the gap in physical training, providing users with a reliable and sophisticated tool for self-guided fitness journeys.
 
+## Publications
 
+This project has been featured in the following publications:
+
+1. **[Title of Publication 1]**  
+   - Authors: Author1, Author2, Author3  
+   - Journal/Conference: Name of the Journal or Conference  
+   - Year: Year of Publication  
+   - Abstract/Summary: Brief summary or abstract of the publication.  
+   - [Link to Publication](URL_to_Publication)
+
+2. **[Title of Publication 2]**  
+   - Authors: Hitesh Kotte, Miloš Kravčík and Nghia Duong-Trung
+   - Conference: MILeS’23: 18th European Conference on Technology Enhanced Learning (ECTEL2023),
+     3rd International Workshop on Multimodal Immersive Learning Systems, September 04–08, 2023, Aveiro, Portugal.  
+   - Year: 2023  
+   - [Link to Publication](https://ceur-ws.org/Vol-3499/paper9.pdf)
+  
+     
 ### Demo 🏋️‍♂️
 <p align="left">
   <a href="https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541">Demo Video</a>
 </p>
+
 
 
 # 🚀 How to Run
