@@ -24,6 +24,9 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
 
 ### Prerequisites
 - Ensure you have [Anaconda](https://www.anaconda.com/products/individual) installed to manage your environments and packages.
+- - Clone the project repository from GitHub. Run the following command in your terminal:
+  ```bash
+  git clone [URL of Your GitHub Repository](https://github.com/hiteshkotte/DFKI-fitsight.git)
 
 ### Creating and Activating the Virtual Environment
 
@@ -89,7 +92,7 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
 
 6. **Accessing the Application in the Browser:**
    - When you open the application in the browser, it will prompt you for credentials.
-   - Use the following Login Credentials 🗝️:
+   - Use the following 🗝️Login Credentials:
      - **Username:** admin
      - **Password:** admin
 
