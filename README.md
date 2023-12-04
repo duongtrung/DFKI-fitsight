@@ -27,7 +27,7 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
   
 - Clone the project repository from GitHub. Run the following command in your terminal:
   ```bash
-  git clone [URL of Your GitHub Repository](https://github.com/hiteshkotte/DFKI-fitsight.git)
+  git clone https://github.com/hiteshkotte/DFKI-fitsight.git
 
 ### Creating and Activating the Virtual Environment
 
