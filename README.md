@@ -3,10 +3,10 @@
 ## Authors
 **Hitesh Kotte** , **Nghia Duong-Trung** , **Milos Kravcik**
 
-Login Page:
+Login Credentials:
 
-username: admin
-password: admin
+Username: admin
+Password: admin
 
 ![Login](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4)
 
