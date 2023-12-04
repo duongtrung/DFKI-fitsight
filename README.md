@@ -5,10 +5,7 @@
 - **Nghia Duong-Trung**
 - **Milos Kravcik**
 
-### Login Credentials 🗝️
 
-- **Username:** `admin`
-- **Password:** `admin`
 
 ### Login Page Preview 🚪
 <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4" width="350">
@@ -92,7 +89,7 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
 
 6. **Accessing the Application in the Browser:**
    - When you open the application in the browser, it will prompt you for credentials.
-   - Use the following login details:
+   - Use the following Login Credentials 🗝️:
      - **Username:** admin
      - **Password:** admin
 
