@@ -14,16 +14,6 @@ Our framework is built upon advanced computer vision technology, employing the h
 Crucially, our application, FITSIGHT, takes this innovation a step further. It enables users to employ a standard webcam as a virtual fitness trainer. This feature is particularly valuable in situations where a physical trainer is unavailable due to various constraints. FITSIGHT stands as a testament to the potential of technology in bridging the gap in physical training, providing users with a reliable and sophisticated tool for self-guided fitness journeys.
 
 
-### Login Page Preview 🚪
-<p align="left">
-  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4" width="350">
-</p>
-
-### Main Page 🖥️
-<p align="left">
-  <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/5f795e99-be9e-48a1-9fdc-2b950b76a724" width="350">
-</p>
-
 ### Demo 🏋️‍♂️
 <p align="left">
   <a href="https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541">Demo Video</a>
