@@ -10,32 +10,14 @@
 - **Username:** `admin`
 - **Password:** `admin`
 
-#### Login Page Preview
+### Login Page Preview 🚪
 <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4" width="350">
 
 ### Main Page 🖥️
 <img src="https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/5f795e99-be9e-48a1-9fdc-2b950b76a724" width="350">
 
 
-
-# FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym Exercises
-
-## Authors
-**Hitesh Kotte** , **Nghia Duong-Trung** , **Milos Kravcik**
-
-Login Credentials:
-
-Username: admin
-
-Password: admin
-
-![Login](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/b34dc785-0b50-4bf8-86c5-cefe984ebba4)
-
-The Main Page:
-
-![GUI](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/5f795e99-be9e-48a1-9fdc-2b950b76a724)
-
-
+### Demo 🏋️‍♂️
 https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826d-0bdde969e541
 
 
