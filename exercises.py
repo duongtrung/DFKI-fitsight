@@ -15,7 +15,7 @@ from PIL import ImageFont, ImageDraw, Image
 from plot_performance import plotgraph
 import os
 import pandas as pd
-
+import csv
 
 import config
 from config import *
@@ -141,7 +141,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                         anglesLH.append(angleLH)
                         anglesRH.append(angleRH)
                         anglesLL.append(angleLL)
-                        anglesLH.append(angleLH)
+                        anglesRL.append(angleRL)
                         percentages.append(percentage)
                         bars.append(bar)
 
@@ -185,7 +185,6 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                                 max_percentage = 0
                                 min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL = 10000, 1000, 1000, 10000, 0,0,0,0  
 
-
                         if webcam:
                             # draw Bar and counter
                             cv2.line(img, (100, 200), (100, fh-100),
@@ -223,8 +222,6 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                                 (fw-228, (fh//2)+150), f"{int(20-bcount)}", font=font3, fill=(255, 0, 0))
                             draw.text(
                                 (fw-250, (fh//2)+250), f"More to Go!", font=font4, fill=(0, 0, 255))
-                            #draw.text(
-                                #(fw-1800, (fh//2)-450), feedback, font=font2, fill=(0, 0, 0))
                             draw.text(
                                 (150, (fh//2)-249), feedback, font=font4, fill=(150, 255, 100))  # Text on top of the rectangle
                             img = np.array(im)
@@ -272,6 +269,25 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                                 (fw-1800, (fh//2)-450), feedback, font=font3, fill=(255, 255, 255))  # Text on top of the rectangle
                             img = np.array(im)
 
+                    csv_file_path = 'static/data.csv'
+                    data = []
+
+                    for i in range(len(anglesLH)):
+                        data.append({
+                            'angleLH': anglesLH[i],
+                            'angleRH': anglesRH[i],
+                            'angleLL': anglesLL[i],
+                            'angleRL': anglesRL[i],
+                            'percentage': percentages[i],
+                            'bar': bars[i]
+                        })
+                    headers = ['angleLH', 'angleRH', 'angleLL', 'angleRL', 'percentage', 'bar']
+
+                    with open(csv_file_path, 'w', newline='') as csv_file:
+                        csv_writer = csv.DictWriter(csv_file, fieldnames=headers)
+                        csv_writer.writeheader()
+                        csv_writer.writerows(data)
+
                 if drawskeleton:
                     for idx in range(output.shape[0]):
                         plot_skeleton_kpts(img, output[idx, 7:].T, 3)
@@ -300,10 +316,8 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
             else:
                 break
 
-        plotgraph(anglesLH, percentages, bars)  
-        plotgraph(anglesRH, percentages, bars)    
-        plotgraph(anglesLL, percentages, bars)    
-        plotgraph(anglesRL, percentages, bars)   
+         
+    
         
         cap.release()
         out.release()

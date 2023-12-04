@@ -543,6 +543,10 @@
                     </button>
                     <!-- </div> -->
                     <p><b>Restart Button:</b> Refresh reloads the current webpage, restarting it to its initial state, typically triggered by this button.</p>
+
+                        <button class="button" id="download-button" onclick="download()">Download
+                            Analytics</button>
+                            <p><b>Download Analytics:</b> This downloads analytics about the performed exercises. </p>
                 </div>
                 </div>
 
@@ -605,7 +609,7 @@
                 </div>
 
                 <div id="processed-video-container">
-                    <video id="processed-video-player" controls style="width: 600px; height: 480px;">
+                    <video id="processed-video-player" controls style="width: 680px; height: 520px;">
                         <!-- <source src="" type="video/mp4"> -->
                     </video>
                 </div>
@@ -749,6 +753,9 @@
         }
     }
 
+    function download() {
+        window.open("/static/download_csv", "_blank");
+    }
 
 
     function processVideo() {

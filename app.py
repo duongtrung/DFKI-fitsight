@@ -208,6 +208,34 @@ def serve_video(filename):
     video_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     print(video_path)
     return send_file(video_path, mimetype='video/mp4')
+
+
+#@app.route('/static/download_csv')
+#def download_csv():
+#    data = [
+#        {'Name': 'John', 'Age': 25, 'City': 'New York'},
+#        {'Name': 'Alice', 'Age': 30, 'City': 'San Francisco'},
+#        {'Name': 'Bob', 'Age': 22, 'City': 'Chicago'},
+#    ]
+
+    # Specify the CSV file path
+#    csv_file_path = '/static/data.csv'
+
+#    return send_file(csv_file_path, as_attachment=True, download_name="example.csv")
+
+
+@app.route('/static/download_csv')
+def download_csv():
+    
+    # Define the filename of your CSV file
+    #csv_file_path = '/static/data.csv'
+    csv_file_path = os.path.join(os.getcwd(), 'static', 'data.csv')
+
+    # Serve the file
+    return send_file(csv_file_path, as_attachment=True, download_name="data.csv")
+
+    
+
  
 if __name__ == '__main__':
     # Run the Flask server on a separate thread
