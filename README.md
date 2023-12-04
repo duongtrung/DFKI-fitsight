@@ -61,7 +61,9 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
        ```
 
    - **For Non-Anaconda Environments:**
-     - Download and extract the FFmpeg build to a known directory (e.g., `C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin`).
+     - Download and extract the FFmpeg build to a known directory
+     -https://ffmpeg.org/download.html
+     
      - Add FFmpeg to your system's PATH:
        - For all users:
          ```bash
