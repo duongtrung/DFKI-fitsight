@@ -62,8 +62,7 @@ After cloning, extract the project files to your desired location. Ensure that y
      ```bash
      pip install -r requirements.txt
      ```
-
-
+     
 4. **FFmpeg Installation:**
    FFmpeg is required for handling multimedia files.
 
