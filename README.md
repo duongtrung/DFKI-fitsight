@@ -71,13 +71,14 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
      - Add FFmpeg to your system's PATH:
        - For all users:
          ```bash
-         setx /M PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+         setx /M PATH "%PATH%;your_path"
          ```
        - For the current user:
          ```bash
-         setx PATH "%PATH%;C:\\Users\\your-username\\Desktop\\fitsight\\ffmpeg-master-latest-win64-gpl\\bin"
+         setx PATH "%PATH%;your_path"
          ```
-     - Replace `your-username` with your actual Windows username.
+     - In this version, "your_path" should be replaced by the user with the actual path to the FFmpeg `bin` directory. The command updates the PATH environment variable, making FFmpeg accessible from anywhere in the command line interface.
+
 
 
 5. **Run the Application:**
@@ -87,6 +88,15 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
      ```
    - Once the application is running, open your web browser.
    - Navigate to the local host address provided in the application's output. Typically, this will be `http://localhost:PORT`
+
+
+6. **Accessing the Application in the Browser:**
+   - When you open the application in the browser, it will prompt you for credentials.
+   - Use the following login details:
+     - **Username:** admin
+     - **Password:** admin
+
+   This will grant you access to the application's features. 
 
 
 
