@@ -25,7 +25,7 @@
 
 # 🚀 How to Run
 
-## Setting Up the Virtual Environment
+## 🛠️ Setting Up the Virtual Environment
 
 ### Prerequisites
 - Ensure you have [Anaconda](https://www.anaconda.com/products/individual) installed to manage your environments and packages.
