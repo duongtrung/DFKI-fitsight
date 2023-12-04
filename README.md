@@ -62,6 +62,7 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
 
    - **For Non-Anaconda Environments:**
      - Download and extract the [FFmpeg](https://ffmpeg.org/download.html) build to the working directory.
+       
      - Add the path of the extracted FFmpeg `bin` folder to your system's PATH:
 	    - Locate the `bin` folder inside the extracted FFmpeg directory.
 	    - Copy the full path to this `bin` folder.
