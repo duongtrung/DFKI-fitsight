@@ -5,6 +5,13 @@
 - **Nghia Duong-Trung**
 - **Milos Kravcik**
 
+## Project Overview
+
+In today's world, where developing psychomotor skills poses a significant challenge, cutting-edge technology steps in as an invaluable ally. Our research introduces an innovative approach that harnesses the power of computer vision to track and enhance performance in fitness training. We present a groundbreaking system designed to monitor exercise execution and offer instantaneous feedback on posture during workouts. This real-time guidance facilitates self-correction and boosts motivation, especially in the absence of professional supervision.
+
+Our framework is built upon advanced computer vision technology, employing the highly efficient YOLOv7-pose model to pinpoint human keypoints. This is coupled with a sophisticated tracking system focused on human body topology, providing comprehensive data for immediate posture correction. One of the standout features of our system is its use of transfer learning, which significantly reduces the need for extensive retraining of the model.
+
+Crucially, our application, FITSIGHT, takes this innovation a step further. It enables users to employ a standard webcam as a virtual fitness trainer. This feature is particularly valuable in situations where a physical trainer is unavailable due to various constraints. FITSIGHT stands as a testament to the potential of technology in bridging the gap in physical training, providing users with a reliable and sophisticated tool for self-guided fitness journeys.
 
 
 ### Login Page Preview 🚪
