@@ -1,3 +1,23 @@
+# FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym Exercises 🏋️‍♂️
+
+## Authors
+- **Hitesh Kotte**
+- **Nghia Duong-Trung**
+- **Milos Kravcik**
+
+### Login Credentials 🗝️
+
+- **Username:** `admin`
+- **Password:** `admin`
+
+#### Login Page Preview
+<img src="URL_of_your_login_image" width="250">
+
+### Main Page 🖥️
+![GUI](https://github.com/hiteshkotte/DFKI-fitsight/assets/.../main_page_image)
+
+
+
 # FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym Exercises
 
 ## Authors
