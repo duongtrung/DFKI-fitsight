@@ -61,8 +61,7 @@ https://github.com/hiteshkotte/MILeS_2023/assets/35593884/7835485c-a494-40b1-826
        ```
 
    - **For Non-Anaconda Environments:**
-     - Download and extract the FFmpeg [FFmpeg](https://ffmpeg.org/download.html) build to the working directory.
-     -https://ffmpeg.org/download.html
+     - Download and extract the [FFmpeg](https://ffmpeg.org/download.html) build to the working directory.
      
      - Add FFmpeg to your system's PATH:
        - For all users:
