@@ -56,8 +56,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
         vid_write_image = letterbox(
             cap.read()[1], (fw), stride=64, auto=True)[0]
         resize_height, resize_width = vid_write_image.shape[:2]
-        out_video_name = "static\\uploads\\output_bicep_" + parity if path.isnumeric(
-        ) else "static\\uploads\\output_bicep_" + parity
+        out_video_name = f"static\\uploads\\output_{exercise_name}_" + parity if path.isnumeric() else f"static\\uploads\\output_{exercise_name}_" + parity
         
         out = cv2.VideoWriter(f"{out_video_name}.mp4", cv2.VideoWriter_fourcc(
             *'mp4v'), 30, (resize_width, resize_height))
