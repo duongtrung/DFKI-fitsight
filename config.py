@@ -126,6 +126,9 @@ def bicep_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angl
 
 
 
+
+
+
 #......................................................................LUNGES...........................................................................................................
 
 def lunges_findAngle(img, kpts, fw, fh, drawskeleton):
@@ -232,20 +235,47 @@ def pushup_feedback(max_percentage, recommendation):
 #...........................................SHOULDER_LATERAL_RAISE.................................................
 
 def shoulder_lateral_raise_findAngle(img, kpts, fw, fh, drawskeleton): 
-    angle = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)
-    angle1 = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)
-    percentage = np.interp(angle, (171, 194), (0, 100))
-    bar = np.interp(angle, (171, 194), (fh-100, 100)) 
-    return angle, percentage, bar
+    
+    angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)
+    angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)
+    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)
+    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)
 
-def shoulder_lateral_raise_feedback(max_percentage, recommendation):
-    if max_percentage <= 75:
-        feedback = "Lift your arms more up!" if recommendation else ""
-    elif max_percentage <= 90:
-        feedback = "Almost There!" if recommendation else ""
+    print(angleLH, angleRH, angleLL, angleRL)
+    
+    percentages = [np.interp(angleLH, (170, 192), (100, 0)), np.interp(angleRH, (170, 192), (0, 100)), np.interp(angleLL, (90, 180), (0, 100)), np.interp(angleRL, (90, 180), (0, 100)) ]
+    percentage = sum(percentages) / len(percentages) 
+    percentage = np.interp(percentage, (50, 100), (0, 100))
+    print(percentage)
+
+    bars = [np.interp(angleLH, (170, 192), (200, fh-100)), np.interp(angleRH, (172, 192), (fh-100, 200)), np.interp(angleLL, (90, 180), (fh-100, 200)), np.interp(angleRL, (90, 180), (fh-100, 200)) ]
+    bar = sum(bars) / len(bars)
+    bar = np.interp(bar, (200, 400), (200, fh-100))
+    print(bar)
+    return angleLH, angleRH, angleLL, angleRL,  percentage, bar
+
+def shoulder_lateral_raise_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
+    feedback = ""
+    
+    if max_percentage <= 90:
+
+        if min_angleLH >= 70: 
+            feedback += "Your Left hand needs to be fixed \n" if recommendation else ""      
+            
+        if max_angleRH <= 255:    
+            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
+            
+        if max_angleLL >= 190:   
+            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
+            
+        if max_angleRL <= 175:   
+            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
+            
     else:
         feedback = "Great work! Keep going" if recommendation else ""
+       
     return feedback
+
 
 #....................................................SQUATS..................................................................
 
