@@ -249,18 +249,48 @@ def shoulder_lateral_raise_feedback(max_percentage, recommendation):
 
 #....................................................SQUATS..................................................................
 
-def squats_findAngle(img, kpts, fw, fh, drawskeleton):  
-    angle = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)
-    angle1 = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)
-    percentage = np.interp(angle, (210, 280), (0, 100))
-    bar = np.interp(angle, (220, 280), (fh-100, 100)) 
-    return angle, percentage, bar
+def squats_findAngle(img, kpts, fw, fh, drawskeleton): 
+    angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)  # Left Hand
+    angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)  # Right Hand
+    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)  # Left Leg
+    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)  # Right Leg
 
-def squats_feedback(max_percentage, recommendation):
-    if max_percentage <= 75:
-        feedback = "Pull ypur arms more closer" if recommendation else ""
-    elif max_percentage <= 90:
-        feedback = "Almost There!" if recommendation else ""
+    print(angleLH, angleRH, angleLL, angleRL)
+    
+    # Interpolation for percentage and bar
+    percentageLL = np.interp(angleLL, (182, 234), (0, 100))  # Adjusted range for left leg
+    percentageRL = np.interp(angleRL, (127, 178), (100, 0))  # Adjusted range for right leg
+    percentage = (percentageLL + percentageRL) / 2
+    print(percentage)
+
+    barLL = np.interp(angleLL, (182, 234), (fh-100, 200))  # Adjusted range for left leg
+    barRL = np.interp(angleRL, (127, 178), (200, fh-100))  # Adjusted range for right leg
+    bar = min(barLL, barRL)  # Using the lower bar value to represent squat depth
+    print(bar)
+
+    return angleLH, angleRH, angleLL, angleRL, percentage, bar
+
+def squats_feedback(min_angleLH, min_angleRH, min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
+    feedback = ""
+    
+    if max_percentage <= 90:
+       
+        deep_squat_threshold_LL = 190  # Example threshold for left leg
+        deep_squat_threshold_RL = 175  # Example threshold for right leg
+
+        if max_angleLL >= deep_squat_threshold_LL or max_angleRL >= deep_squat_threshold_RL:
+            feedback = "Try to squat deeper while maintaining balance and form." if recommendation else ""
+        else:
+            feedback = "Your squat depth is good. Keep up the good work!"
+
     else:
-        feedback = "Great work! Keep going" if recommendation else ""  
-    return feedback      
+        feedback = "Great work! Keep going" if recommendation else ""
+        
+    return feedback
+
+
+
+    
+
+
+    
