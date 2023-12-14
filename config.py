@@ -131,61 +131,40 @@ def bicep_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angl
 
 #......................................................................LUNGES...........................................................................................................
 
-def lunges_findAngle(img, kpts, fw, fh, drawskeleton):
-    # Angle calculation for lunges
-    angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)  # Left hand
-    angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)  # Right hand
-    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)  # Left leg
-    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)  # Right leg
+def lunges_findAngle(img, kpts, fw, fh, drawskeleton): 
+    angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)  # Left Hand
+    angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)  # Right Hand
+    angleRL = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)  # Right Leg (Front Leg)
+    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)  # Left Leg (Back Leg)
 
-    print(angleLH, angleRH, angleLL, angleRL)
+    print(angleRL, angleLL)
 
-    # Adjusting the interpolation values for lunges
-    percentages = [
-        np.interp(angleLH, (187, 190), (100, 0)),
-        np.interp(angleRH, (204, 277), (100, 0)),
-        np.interp(angleLL, (112, 158), (100, 0)),
-        np.interp(angleRL, (56, 124), (100, 0))
-    ]
-    percentage = sum(percentages) / len(percentages) 
-    percentage = np.interp(percentage, (50, 100), (0, 100))
+    # Interpolation for percentage
+    # Reverse mapping for right leg as it's the front leg in the lunge
+    percentageRL = np.interp(angleRL, (95, 165), (100, 0))  # Deeper lunge = higher percentage
+    percentageLL = np.interp(angleLL, (95, 165), (100, 0))  # Straighter back leg = higher percentage
+
+    percentage = (percentageRL + percentageLL) / 2
+    percentage = np.interp(percentage, (0, 50), (0, 100))
     print(percentage)
 
-    bars = [
-        np.interp(angleLH, (187, 190), (fh-100, 200)),  # Reverse the range for correct mapping
-        np.interp(angleRH, (204, 277), (fh-100, 200)),
-        np.interp(angleLL, (112, 158), (fh-100, 200)),
-        np.interp(angleRL, (56, 124), (fh-100, 200))
-    ]
-    bar = sum(bars) / len(bars)
-
-    # Adjusting the final interpolation range
-    # Ensure that 0% corresponds to the start position of the bar
+    # Bar calculations
     bar = np.interp(percentage, (0, 100), (fh-100, 200))
-
     print(bar)
 
     return angleLH, angleRH, angleLL, angleRL, percentage, bar
 
-
-def lunges_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
+def lunges_feedback(min_angleLH, min_angleRH, min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
     feedback = ""
+
     if max_percentage <= 90:
-
-        if min_angleLH >= 70: 
-            feedback += "Your Left hand needs to be fixed \n" if recommendation else "" 
-
-        if max_angleRH <= 255:    
-            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
-            
-        if max_angleLL >= 190:   
-            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
-            
-        if max_angleRL <= 175:   
-            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
-            
+        if max_angleRL < 140:  # Assuming 120 as a threshold for a deep enough front lunge
+            feedback += "Try to lunge deeper with your right leg.\n" if recommendation else ""
+        
+        if min_angleLL < 140:  # Assuming 160 as a threshold for the back leg to be straighter
+            feedback += "Keep your left leg straighter during the lunge.\n" if recommendation else ""
     else:
-        feedback = "Great work! Keep going" if recommendation else ""
+        feedback = "Great form on your lunges! Keep it up." if recommendation else ""
         
     return feedback
 
@@ -323,29 +302,30 @@ def squats_feedback(min_angleLH, min_angleRH, min_angleLL, min_angleRL, max_angl
 
 
 
-def shoulder_press_findAngle(img, kpts, fw, fh, drawskeleton):
+def shoulder_press_findAngle(img, kpts, fw, fh, drawskeleton): 
     # Angles for shoulder press
-    angleLH, angleRH, angleLL, angleRL = [], [], [], []
-    for i in range(5):
-        angleLH.append(findAngle(img, kpts, 5, 7, 9, draw=drawskeleton))
-        angleRH.append(findAngle(img, kpts, 6, 8, 10, draw=drawskeleton))
+    angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)
+    angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)
+    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)  # Left Leg
+    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)  # Right Leg
 
-    # Calculate average angle for each arm
-    avgAngleLH = sum(angleLH) / len(angleLH)
-    avgAngleRH = sum(angleRH) / len(angleRH)
+    print(angleLH, angleRH)
 
-    # Adjusted interpolation for percentage based on ground truth data
-    percentageLH = np.interp(avgAngleLH, (40, 165), (0, 100))
-    percentageRH = np.interp(avgAngleRH, (313, 200), (0, 100))
+    # Corrected interpolation for arm angles
+    # Ensure these ranges correctly represent the movement during the exercise
+    percentageLH = np.interp(angleLH, (50, 175), (0, 100))  # Assuming 40-165 is the full range for LH
+    percentageRH = np.interp(angleRH, (305, 182), (0, 100))  # Assuming 313-200 is the full range for RH
 
-    # Calculate average percentage
-    percentage = (percentageLH + percentageRH) / 2
+    # Average percentage considering only arms
+    percentage = (percentageLH + percentageRH) / 2 
+    percentage = np.interp(percentage, (50, 100), (0, 100))
+    
+    print(percentage)
 
-    # Bar calculations
-    barLH = np.interp(percentageLH, (0, 100), (fh-100, 200))
-    barRH = np.interp(percentageRH, (0, 100), (200, fh-100))
-    bar = (barLH + barRH) / 2
-
+    # Adjusted bar calculations based on arm angles
+    # Bar position reflects the average percentage of arm movement
+    bar = np.interp(percentage, (0, 100), (fh-100, 200))
+    print(bar)
     return angleLH, angleRH, angleLL, angleRL, percentage, bar
 
 
@@ -353,70 +333,71 @@ def shoulder_press_findAngle(img, kpts, fw, fh, drawskeleton):
 
 def shoulder_press_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
     feedback = ""
-    
+
+    # Providing feedback based on the percentage of completion and individual arm angles
     if max_percentage <= 90:
+        # Feedback for Left Hand
+        if min_angleLH > 50: 
+            feedback += "Try to lower your left hand more at the starting position.\n" if recommendation else ""
+        if max_angleLH < 150:
+            feedback += "Lift your left hand higher to reach the full range of motion.\n" if recommendation else ""
 
-        if min_angleLH <= 100: 
-            feedback += "Your Left hand needs to be fixed \n" if recommendation else ""      
-            
-        if max_angleRH >= 255:    
-            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
-            
-        if max_angleLL >= 190:   
-            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
-            
-        if max_angleRL <= 175:   
-            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
-            
+        # Feedback for Right Hand
+        if min_angleRH > 205:
+            feedback += "Try to lower your right hand more at the starting position.\n" if recommendation else ""
+        if max_angleRH < 298:
+            feedback += "Lift your right hand higher to reach the full range of motion.\n" if recommendation else ""
+
     else:
-        feedback = "Great work! Keep going" if recommendation else ""
-       
+        feedback = "Excellent form and execution! Keep up the great work." if recommendation else ""
+    
     return feedback
-
 
 
 #....................................................BENT OVER ROW..................................................................
 
 
 def bent_over_row_findAngle(img, kpts, fw, fh, drawskeleton): 
-    
     angleLH = findAngle(img, kpts, 5, 7, 9, draw=drawskeleton)
     angleRH = findAngle(img, kpts, 6, 8, 10, draw=drawskeleton)
-    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)
-    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)
+    angleLL = findAngle(img, kpts, 11, 13, 15, draw=drawskeleton)  # Left Leg
+    angleRL = findAngle(img, kpts, 12, 14, 16, draw=drawskeleton)  # Right Leg
+    # Ignoring leg angles as they remain constant
 
-    print(angleLH, angleRH, angleLL, angleRL)
+    print(angleLH, angleRH)
+
+    # Corrected interpolation for arm angles
+    # Ensure these ranges correctly represent the movement during the exercise
+    percentageLH = np.interp(angleLH, (190, 238), (0, 100))  # Assuming 182-268 is the full range for LH
+    percentageRH = np.interp(angleRH, (165, 106), (0, 100))  # Assuming 84-174 is the full range for RH
     
-    percentages = [np.interp(angleLH, (30, 178), (100, 0)), np.interp(angleRH, (182, 327), (0, 100)), np.interp(angleLL, (90, 180), (0, 100)), np.interp(angleRL, (90, 180), (0, 100)) ]
-    percentage = sum(percentages) / len(percentages) 
+
+    # Average percentage considering only arms
+    percentage = (percentageLH + percentageRH) / 2 
     percentage = np.interp(percentage, (50, 100), (0, 100))
     print(percentage)
 
-    bars = [np.interp(angleLH, (30, 178), (200, fh-100)), np.interp(angleRH, (182, 327), (fh-100, 200)), np.interp(angleLL, (90, 180), (fh-100, 200)), np.interp(angleRL, (90, 180), (fh-100, 200)) ]
-    bar = sum(bars) / len(bars)
-    bar = np.interp(bar, (200, 400), (200, fh-100))
+    # Adjusted bar calculations based on arm angles
+    # Bar position reflects the average percentage of arm movement
+    bar = np.interp(percentage, (0, 100), (fh-100, 200))
     print(bar)
-    return angleLH, angleRH, angleLL, angleRL,  percentage, bar
+    return angleLH, angleRH, angleLL, angleRL, percentage, bar
 
 def bent_over_row_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angleLH, max_angleRH, max_angleLL, max_angleRL, max_percentage, recommendation):
     feedback = ""
     
     if max_percentage <= 90:
-
-        if min_angleLH >= 70: 
-            feedback += "Your Left hand needs to be fixed \n" if recommendation else ""      
-            
-        if max_angleRH <= 255:    
-            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
-            
-        if max_angleLL >= 190:   
-            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
-            
-        if max_angleRL <= 175:   
-            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
-            
+        # Feedback for Left Hand
+        if min_angleLH <= 210: 
+            feedback += "Increase the range of motion in your left arm. Try to bring your elbow higher.\n" if recommendation else ""      
+        
+        # Feedback for Right Hand
+        if max_angleRH >= 150:    
+            feedback += "Increase the range of motion in your right arm. Ensure you're lifting the weight fully.\n" if recommendation else ""
+        
+        # As legs remain constant, feedback for legs is not necessary. Adjust if needed.
+        
     else:
-        feedback = "Great work! Keep going" if recommendation else ""
+        feedback = "Great work! Your form is excellent, keep it up." if recommendation else ""
        
     return feedback
-    
