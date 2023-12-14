@@ -293,6 +293,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
 
                 if webcam:
                     cv2.imshow("Detection", img)
+                    cv2.moveWindow("Detection", 1990, 200)
                     key = cv2.waitKey(1)
                     if key == ord('c'):
                         break
