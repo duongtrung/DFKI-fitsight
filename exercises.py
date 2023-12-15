@@ -292,9 +292,19 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                         plot_skeleton_kpts(img, output[idx, 7:].T, 3)
 
                 if webcam:
+                    
+                    cv2.namedWindow("Detection", cv2.WND_PROP_FULLSCREEN)
+
+                    
+                    cv2.setWindowProperty("Detection", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
+                    cv2.moveWindow("Detection", 1800, 0)
+
+
+                    
                     cv2.imshow("Detection", img)
                     
-                    cv2.moveWindow("Detection", 1990, 200)
+    
                     key = cv2.waitKey(1)
                     if key == ord('c'):
                         break
