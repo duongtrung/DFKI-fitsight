@@ -84,7 +84,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
         font1 = ImageFont.truetype(fontpath, 170)
         font2 = ImageFont.truetype(fontpath, 50)
         font3 = ImageFont.truetype(fontpath, 70)
-        font4 = ImageFont.truetype(fontpath, 30)
+        font4 = ImageFont.truetype(fontpath, 36)
 
 
 
@@ -164,7 +164,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                                 bcount += 0.5
                                 direction = 1
                                 
-                        if percentage <= 4:
+                        if percentage <= 10:
                             if direction == 1:
                                 bcount += 0.5 
                                 direction = 0
@@ -218,11 +218,11 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                             draw.text(
                                 (fw-228, (fh//2)-229), f"{int(bcount)}", font=font3, fill=(255, 255, 255))
                             draw.text(
-                                (fw-228, (fh//2)+150), f"{int(20-bcount)}", font=font3, fill=(255, 0, 0))
+                                (fw-228, (fh//2)+150), f"{int(10-bcount)}", font=font3, fill=(255, 0, 0))
                             draw.text(
                                 (fw-250, (fh//2)+250), f"More to Go!", font=font4, fill=(0, 0, 255))
                             draw.text(
-                                (150, (fh//2)-249), feedback, font=font4, fill=(150, 255, 100))  # Text on top of the rectangle
+                                (90, (fh//2)-350), feedback, font=font4, fill=(50, 155, 50))  # Text on top of the rectangle
                             img = np.array(im)
 
                         else:
@@ -293,6 +293,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
 
                 if webcam:
                     cv2.imshow("Detection", img)
+                    
                     cv2.moveWindow("Detection", 1990, 200)
                     key = cv2.waitKey(1)
                     if key == ord('c'):

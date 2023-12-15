@@ -107,19 +107,19 @@ def bicep_feedback(min_angleLH, min_angleRH , min_angleLL, min_angleRL, max_angl
     if max_percentage <= 90:
 
         if min_angleLH >= 70: 
-            feedback += "Your Left hand needs to be fixed \n" if recommendation else ""      
+            feedback += "Adjust your left elbow angle; it's too open during the curl. \n" if recommendation else ""      
             
         if max_angleRH <= 255:    
-            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
+            feedback += "Increase the curl range for your left arm; it's not fully contracting. \n" if recommendation else ""
             
         if max_angleLL >= 190:   
-            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
+            feedback += "Adjust your right elbow angle; it's too open during the curl. \n" if recommendation else ""
             
         if max_angleRL <= 175:   
-            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
+            feedback += "Increase the curl range for your right arm; it's not fully contracting. \n" if recommendation else ""
             
     else:
-        feedback = "Great work! Keep going" if recommendation else ""
+        feedback = "Great form on your bicep curls! Keep up the good work." if recommendation else ""
        
     return feedback
 
@@ -239,19 +239,19 @@ def shoulder_lateral_raise_feedback(min_angleLH, min_angleRH , min_angleLL, min_
     if max_percentage <= 90:
 
         if min_angleLH >= 70: 
-            feedback += "Your Left hand needs to be fixed \n" if recommendation else ""      
+            feedback += "Lower your left arm more at the starting position. \n" if recommendation else ""      
             
         if max_angleRH <= 255:    
-            feedback += "Your Right hand needs to be fixed \n" if recommendation else ""
+            feedback += "Raise your left arm higher, up to shoulder level. \n" if recommendation else ""
             
         if max_angleLL >= 190:   
-            feedback += "Your Left Leg needs to be fixed \n" if recommendation else ""
+            feedback += "Lower your right arm more at the starting position. \n" if recommendation else ""
             
         if max_angleRL <= 175:   
-            feedback += "Your Right Leg needs to be fixed \n" if recommendation else ""
+            feedback += "Raise your right arm higher, up to shoulder level. \n" if recommendation else ""
             
     else:
-        feedback = "Great work! Keep going" if recommendation else ""
+        feedback = "Excellent form on your lateral raises!" if recommendation else ""
        
     return feedback
 
