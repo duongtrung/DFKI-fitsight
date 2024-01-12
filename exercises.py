@@ -298,7 +298,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                     
                     cv2.setWindowProperty("Detection", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
-                    cv2.moveWindow("Detection", 1800, 0)
+                    cv2.moveWindow("Detection", 0, 0)
 
 
                     
