@@ -164,7 +164,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                                 bcount += 0.5
                                 direction = 1
                                 
-                        if percentage <= 10:
+                        if percentage <= 20:
                             if direction == 1:
                                 bcount += 0.5 
                                 direction = 0
