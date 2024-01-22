@@ -294,19 +294,14 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
                 if webcam:
                     
                     cv2.namedWindow("Detection", cv2.WND_PROP_FULLSCREEN)
-
                     
                     cv2.setWindowProperty("Detection", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-
                     cv2.moveWindow("Detection", 0, 0)
-
-
-                    
                     cv2.imshow("Detection", img)
                     
     
                     key = cv2.waitKey(1)
-                    if key == ord('c'):
+                    if key == 27:
                         break
                 else:
                     img_ = img.copy()
@@ -332,7 +327,7 @@ def run_exercise(poseweights='yolov7-w6-pose.pt', source='', device='cpu', curlt
         
         cap.release()
         out.release()
-        #cv2.destroyAllWindows()
+        cv2.destroyAllWindows()
         avg_fps = total_fps / frame_count
         print(f"Average FPS: {avg_fps:.3f}")
 
