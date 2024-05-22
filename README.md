@@ -55,15 +55,15 @@ This project was also submitted as a Master thesis:
 <table>
   <tr>
     <td>
-      <img src="Images/real_time_feedback.png" alt="Image 1" width="400"/><br>
+      <img src="Images/real_time_feedback.png" alt="Image 1" width="500"/><br>
       <p>Image 1: Real Time Feedback</p>
     </td>
     <td>
-      <img src="Images/impect_fitness_architecture.png" alt="Image 2" width="400"/><br>
+      <img src="Images/impect_fitness_architecture.png" alt="Image 2" width="500"/><br>
       <p>Image 2: Impect Platform Architecture</p>
     </td>
     <td>
-      <img src="Images/impect_backend_dashboard.png" alt="Image 3" width="300"/><br>
+      <img src="Images/impect_backend_dashboard.png" alt="Image 3" width="500"/><br>
       <p>Image 3: Impect Dashboard</p>
     </td>
   </tr>
