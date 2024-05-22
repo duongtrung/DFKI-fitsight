@@ -61,7 +61,7 @@ This project was also submitted as a Master thesis:
   </tr>
   <tr>
     <td>
-      <img src="Images/impect_fitness_architecture.png" alt="Impect Platform Architecture" width="400"/><br>
+      <img src="Images/impect_fitness_architecture.png" alt="Impect Platform Architecture" width="300"/><br>
       <p>Impect Platform Architecture</p>
     </td>
     <td>
@@ -75,7 +75,7 @@ This project was also submitted as a Master thesis:
       <p>Fitsight Workflow</p>
     </td>
     <td>
-      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="400"/><br>
+      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="150"/><br>
       <p>Human Keypoints</p>
     </td>
   </tr>
