@@ -17,16 +17,38 @@ Crucially, our application, FITSIGHT, takes this innovation a step further. It e
 
 This project has been featured in the following publications:
 
-1. **Augmented Intelligence in Tutoring Systems: A Case Study in Real-Time Pose Tracking to Enhance the Self-learning of Fitness Exercises**  
+1. **FitSight: Tracking and Feedback Engine for Personalized Fitness Training**  
+   - Authors: Hitesh Kotte, Florian Daiber, Miloš Kravčík and Nghia Duong-Trung
+   - Conference: UMAP 2024: In Proceedings of the 32nd ACM Conference on User Modeling, Adaptation and Personalization, July 1–4, 2024, Cagliari, Italy.   
+   - [Link to Publication](https://doi.org/10.1145/3627043.3659547)
+  
+2. **IMPECT-POSE: A Complete Front-end and Back-end Architecture for Pose Tracking and Feedback**  
+   - Authors: Abhishek Samantha, Hitesh Kotte, Patrick Handwerk, Khaleel Asyraaf Mat Sanusi, Mai Geisen, Miloš Kravčík, and Nghia Duong-Trung
+   - Conference: In Proceedings of the 32nd ACM Conference on User Modeling, Adaptation and Personalization, July 1–4, 2024, Cagliari, Italy. 
+   - [Link to Publication](https://doi.org/10.1145/3631700.3664865)
+
+3. **Augmented Intelligence in Tutoring Systems: A Case Study in Real-Time Pose Tracking to Enhance the Self-learning of Fitness Exercises**  
    - Authors: Nghia Duong-Trung, Hitesh Kotte and Miloš Kravčík
    - Conference: 18th European Conference on Technology Enhanced Learning, EC-TEL 2023 Aveiro, Portugal, September 4–8, 2023 Proceedings
    - [Link to Publication](https://link.springer.com/chapter/10.1007/978-3-031-42682-7_65)
 
-2. **Real-Time Posture Correction in Gym Exercises: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback**  
+4. **Real-Time Posture Correction in Gym Exercises: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback**  
    - Authors: Hitesh Kotte, Miloš Kravčík and Nghia Duong-Trung
    - Conference: MILeS’23: 18th European Conference on Technology Enhanced Learning (ECTEL2023),
      3rd International Workshop on Multimodal Immersive Learning Systems, September 04–08, 2023, Aveiro, Portugal.   
    - [Link to Publication](https://ceur-ws.org/Vol-3499/paper9.pdf)
+
+
+## Master Thesis
+
+This project was also submitted as a Master thesis:
+
+1. **Augmented Intelligence in Tutoring Systems: Real-Time Pose Tracking to Enhance the Self-learning of Fitness Exercises**  
+   - Authors: Hitesh Kotte
+   - Supervisor: Dr. Florian Daiber
+   - Reviewers: Prof. Dr. Antonio Krüger and Dr. Nghia Duong-Trung
+   - Submitted To: Data Science and Artifificial Intelligence department, Saarland University, Germany.  
+
   
      
 ### Demo 🏋️‍♂️
