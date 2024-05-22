@@ -55,26 +55,26 @@ This project was also submitted as a Master thesis:
 <table>
   <tr>
     <td>
-      <img src="Images/impect_backend_dashboard.png" alt="Image 1" width="200"/><br>
-      <p>Image 1: Description 1</p>
+      <img src="Images/real_time_feedback.png" alt="Image 1" width="300"/><br>
+      <p>Image 1: Real Time Feedback</p>
     </td>
     <td>
-      <img src="path/to/image2.jpg" alt="Image 2" width="200"/><br>
-      <p>Image 2: Description 2</p>
+      <img src="Images/impect_fitness_architecture.png" alt="Image 2" width="200"/><br>
+      <p>Image 2: Impect Platform Architecture</p>
     </td>
     <td>
-      <img src="path/to/image3.jpg" alt="Image 3" width="200"/><br>
-      <p>Image 3: Description 3</p>
+      <img src="Images/impect_backend_dashboard.png" alt="Image 3" width="200"/><br>
+      <p>Image 3: Impect Dashboard</p>
     </td>
   </tr>
   <tr>
     <td>
-      <img src="path/to/image4.jpg" alt="Image 4" width="200"/><br>
-      <p>Image 4: Description 4</p>
+      <img src="Images/Pic_0359.jpg" alt="Image 4" width="200"/><br>
+      <p>Image 4: Fitsight Workflow</p>
     </td>
     <td>
-      <img src="path/to/image5.jpg" alt="Image 5" width="200"/><br>
-      <p>Image 5: Description 5</p>
+      <img src="Images/Pic_0281.jpg" alt="Image 5" width="200"/><br>
+      <p>Image 5:Human Keypoints</p>
     </td>
   </tr>
 </table>
