@@ -54,28 +54,28 @@ This project was also submitted as a Master thesis:
 
 <table>
   <tr>
-    <td>
+    <td colspan="2" align="center">
       <img src="Images/real_time_feedback.png" alt="Real Time Feedback" width="600"/><br>
       <p>Real Time Feedback</p>
     </td>
+  </tr>
+  <tr>
     <td>
       <img src="Images/impect_fitness_architecture.png" alt="Impect Platform Architecture" width="400"/><br>
       <p>Impect Platform Architecture</p>
     </td>
-  </tr>
-  <tr>
     <td>
       <img src="Images/impect_backend_dashboard.png" alt="Impect Dashboard" width="400"/><br>
       <p>Impect Dashboard</p>
     </td>
+  </tr>
+  <tr>
     <td>
       <img src="Images/Pic_0359.jpg" alt="Fitsight Workflow" width="400"/><br>
       <p>Fitsight Workflow</p>
     </td>
-  </tr>
-  <tr>
     <td>
-      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="200"/><br>
+      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="400"/><br>
       <p>Human Keypoints</p>
     </td>
   </tr>
