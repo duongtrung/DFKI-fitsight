@@ -49,7 +49,36 @@ This project was also submitted as a Master thesis:
    - Reviewers: Prof. Dr. Antonio Krüger and Dr. Nghia Duong-Trung
    - Submitted To: Data Science and Artificial Intelligence department, Saarland University, Germany.  
 
-  
+
+## Screenshots
+
+<table>
+  <tr>
+    <td>
+      <img src="path/to/image1.jpg" alt="Image 1" width="200"/><br>
+      <p>Image 1: Description 1</p>
+    </td>
+    <td>
+      <img src="path/to/image2.jpg" alt="Image 2" width="200"/><br>
+      <p>Image 2: Description 2</p>
+    </td>
+    <td>
+      <img src="path/to/image3.jpg" alt="Image 3" width="200"/><br>
+      <p>Image 3: Description 3</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="path/to/image4.jpg" alt="Image 4" width="200"/><br>
+      <p>Image 4: Description 4</p>
+    </td>
+    <td>
+      <img src="path/to/image5.jpg" alt="Image 5" width="200"/><br>
+      <p>Image 5: Description 5</p>
+    </td>
+  </tr>
+</table>
+
      
 ### Demo 🏋️‍♂️
 <p align="left">
