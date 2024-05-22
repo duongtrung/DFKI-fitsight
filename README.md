@@ -50,12 +50,12 @@ This project was also submitted as a Master thesis:
    - Submitted To: Data Science and Artificial Intelligence department, Saarland University, Germany.  
 
 
-## Screenshots
+## Images
 
 <table>
   <tr>
     <td colspan="2" align="center">
-      <img src="Images/real_time_feedback.png" alt="Real Time Feedback" width="600"/><br>
+      <img src="Images/real_time_feedback.png" alt="Real Time Feedback" width="800"/><br>
       <p>Real Time Feedback</p>
     </td>
   </tr>
