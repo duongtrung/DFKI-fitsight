@@ -55,7 +55,7 @@ This project was also submitted as a Master thesis:
 <table>
   <tr>
     <td>
-      <img src="Images/real_time_feedback.png" alt="Real Time Feedback" width="400"/><br>
+      <img src="Images/real_time_feedback.png" alt="Real Time Feedback" width="600"/><br>
       <p>Real Time Feedback</p>
     </td>
     <td>
@@ -75,7 +75,7 @@ This project was also submitted as a Master thesis:
   </tr>
   <tr>
     <td>
-      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="400"/><br>
+      <img src="Images/Pic_0281.jpg" alt="Human Keypoints" width="200"/><br>
       <p>Human Keypoints</p>
     </td>
   </tr>
