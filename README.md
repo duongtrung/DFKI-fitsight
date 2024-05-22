@@ -60,21 +60,21 @@ This project was also submitted as a Master thesis:
     </td>
     <td>
       <img src="Images/impect_fitness_architecture.png" alt="Image 2" width="500"/><br>
-      <p>Image 2: Impect Platform Architecture</p>
+      <p>Impect Platform Architecture</p>
     </td>
     <td>
       <img src="Images/impect_backend_dashboard.png" alt="Image 3" width="500"/><br>
-      <p>Image 3: Impect Dashboard</p>
+      <p>Impect Dashboard</p>
     </td>
   </tr>
   <tr>
     <td>
       <img src="Images/Pic_0359.jpg" alt="Image 4" width="400"/><br>
-      <p>Image 4: Fitsight Workflow</p>
+      <p>Fitsight Workflow</p>
     </td>
     <td>
       <img src="Images/Pic_0281.jpg" alt="Image 5" width="200"/><br>
-      <p>Image 5:Human Keypoints</p>
+      <p>Human Keypoints</p>
     </td>
   </tr>
 </table>
