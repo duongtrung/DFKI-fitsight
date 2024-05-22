@@ -47,7 +47,7 @@ This project was also submitted as a Master thesis:
    - Authors: Hitesh Kotte
    - Supervisor: Dr. Florian Daiber
    - Reviewers: Prof. Dr. Antonio Krüger and Dr. Nghia Duong-Trung
-   - Submitted To: Data Science and Artifificial Intelligence department, Saarland University, Germany.  
+   - Submitted To: Data Science and Artificial Intelligence department, Saarland University, Germany.  
 
   
      
