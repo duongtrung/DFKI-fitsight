@@ -61,7 +61,7 @@ This project was also submitted as a Master thesis:
   </tr>
   <tr>
     <td>
-      <img src="Images/Pic_0359.jpg" alt="Fitsight Workflow" width="300"/><br>
+      <img src="Images/Pic_0359.jpg" alt="Fitsight Workflow" width="500"/><br>
       <p>Fitsight Workflow</p>
     </td>
     <td>
