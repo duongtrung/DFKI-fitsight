@@ -70,7 +70,7 @@ This project was also submitted as a Master thesis:
     </td>
   </tr>
   <tr>
-    <td>
+    <td align="center">
       <img src="Images/impect_fitness_architecture.png" alt="Impect Platform Architecture" width="400"/><br> 	
       <p>Impect Platform Architecture</p>
     </td>
