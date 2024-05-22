@@ -61,11 +61,11 @@ This project was also submitted as a Master thesis:
   </tr>
   <tr>
     <td>
-      <img src="Images/Pic_0359.jpg" alt="Fitsight Workflow" width="500"/><br>
+      <img src="Images/Pic_0359.jpg" alt="Fitsight Workflow" width="460"/><br>
       <p>Fitsight Workflow</p>
     </td>
     <td>
-      <img src="Images/impect_backend_dashboard.png" alt="Impect Dashboard" width="400"/><br>
+      <img src="Images/impect_backend_dashboard.png" alt="Impect Dashboard" width="420"/><br>
       <p>Impect Dashboard</p>
     </td>
   </tr>
