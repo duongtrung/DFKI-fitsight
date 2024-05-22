@@ -55,7 +55,7 @@ This project was also submitted as a Master thesis:
 <table>
   <tr>
     <td>
-      <img src="path/to/image1.jpg" alt="Image 1" width="200"/><br>
+      <img src="Images/impect_backend_dashboard.png" alt="Image 1" width="200"/><br>
       <p>Image 1: Description 1</p>
     </td>
     <td>
