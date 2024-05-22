@@ -56,7 +56,7 @@ This project was also submitted as a Master thesis:
   <tr>
     <td>
       <img src="Images/real_time_feedback.png" alt="Image 1" width="500"/><br>
-      <p>Image 1: Real Time Feedback</p>
+      <p>Real Time Feedback</p>
     </td>
     <td>
       <img src="Images/impect_fitness_architecture.png" alt="Image 2" width="500"/><br>
