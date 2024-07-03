@@ -1,4 +1,5 @@
-# FITSIGHT: A Computer Vision-Based Approach for Performance Analysis, Error Classification and Feedback in Gym Exercises 🏋️‍♂️
+# FITSIGHT: Tracking & Feedback Engine for Personalized Fitness Training![image](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/2cde4eee-f3ed-4265-8ddd-0b6235e847e0)
+🏋️‍♂️
 
 ## Authors
 - **Hitesh Kotte**
