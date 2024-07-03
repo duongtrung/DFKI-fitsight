@@ -1,5 +1,4 @@
-# FITSIGHT: Tracking & Feedback Engine for Personalized Fitness Training![image](https://github.com/hiteshkotte/DFKI-fitsight/assets/35593884/2cde4eee-f3ed-4265-8ddd-0b6235e847e0)
-🏋️‍♂️
+# FITSIGHT: Tracking & Feedback Engine for Personalized Fitness Training! 🏋️‍♂️
 
 ## Authors
 - **Hitesh Kotte**
