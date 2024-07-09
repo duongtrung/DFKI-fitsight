@@ -2,8 +2,8 @@
 
 ## Authors
 - **Hitesh Kotte**
-- **Nghia Duong-Trung**
 - **Milos Kravcik**
+- **Nghia Duong-Trung**
 
 ## Project Overview
 
